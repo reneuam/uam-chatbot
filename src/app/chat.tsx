@@ -37,10 +37,10 @@ export default function Chat() {
         <ChatContainer>
           <ConversationHeader>
             <ConversationHeader.Back />
-            <Avatar name='Zoe' />
+            <Avatar src="/captain-scope.jpg" name="Captain Scope" />
             <ConversationHeader.Content
-              userName='Zoe'
-              info='Active 10 mins ago'
+              userName="Captain Scope"
+              info="HR assistant"
             />
             <ConversationHeader.Actions>
               <VoiceCallButton />
