@@ -1,6 +1,6 @@
 'use client'
 
-import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
+import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css'
 import {
   MainContainer,
   ChatContainer,
@@ -10,22 +10,22 @@ import {
   Avatar,
   ConversationHeader,
   TypingIndicator,
-} from '@chatscope/chat-ui-kit-react';
-import { useState } from 'react';
+} from '@chatscope/chat-ui-kit-react'
+import { useState } from 'react'
 
 export default function Chat() {
-  const [messageInputValue, setMessageInputValue] = useState('');
+  const [messageInputValue, setMessageInputValue] = useState('')
 
   return (
-    <div className="fixed w-[20rem] h-[35rem] right-0 bottom-0">
+    <div className='fixed w-[20rem] h-[35rem] right-0 bottom-0'>
       <MainContainer responsive>
         <ChatContainer>
           <ConversationHeader>
             <ConversationHeader.Back />
-            <Avatar src="/captain-scope.jpg" name="Captain Scope" />
+            <Avatar src='/captain-scope.jpg' name='Captain Scope' />
             <ConversationHeader.Content
-              userName="Captain Scope"
-              info="HR assistant"
+              userName='Captain Scope'
+              info='HR assistant'
             />
           </ConversationHeader>
           <MessageList
@@ -42,7 +42,7 @@ export default function Chat() {
                 position: 'single',
               }}
             >
-              <Avatar src="/captain-scope.jpg" name="Captain Scope" />
+              <Avatar src='/captain-scope.jpg' name='Captain Scope' />
             </Message>
             <Message
               model={{
@@ -72,7 +72,7 @@ export default function Chat() {
                 position: 'single',
               }}
             >
-              <Avatar src="/captain-scope.jpg" name="Captain Scope" />
+              <Avatar src='/captain-scope.jpg' name='Captain Scope' />
             </Message>
             <Message
               model={{
@@ -114,14 +114,14 @@ export default function Chat() {
                 position: 'first',
               }}
             >
-              <Avatar src="/captain-scope.jpg" name="Captain Scope" />
+              <Avatar src='/captain-scope.jpg' name='Captain Scope' />
             </Message>
           </MessageList>
           <MessageInput
-            placeholder="Type message here"
+            placeholder='Type message here'
             value={messageInputValue}
             onChange={(val) => setMessageInputValue(val)}
-            onSend={() => setMessageInputValue("")}
+            onSend={() => setMessageInputValue('')}
             sendButton={true}
             attachButton={false}
           />
