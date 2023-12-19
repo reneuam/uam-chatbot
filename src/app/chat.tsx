@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import {
@@ -9,30 +9,15 @@ import {
   MessageInput,
   Avatar,
   ConversationHeader,
-  MessageSeparator,
-  VoiceCallButton,
-  VideoCallButton,
-  InfoButton,
-  InputToolbox,
-  AttachmentButton,
-  SendButton,
   TypingIndicator,
 } from '@chatscope/chat-ui-kit-react';
 import { useState } from 'react';
 
 export default function Chat() {
-  const [messageInputValue, setMessageInputValue] = useState('')
+  const [messageInputValue, setMessageInputValue] = useState('');
 
   return (
-    <div
-      style={{
-        width: '300px',
-        height: '500px',
-        position: 'fixed',
-        right: '0',
-        bottom: '0'
-      }}
-    >
+    <div className="fixed w-[20rem] h-[35rem] right-0 bottom-0">
       <MainContainer responsive>
         <ChatContainer>
           <ConversationHeader>
@@ -42,154 +27,106 @@ export default function Chat() {
               userName="Captain Scope"
               info="HR assistant"
             />
-            <ConversationHeader.Actions>
-              <VoiceCallButton />
-              <VideoCallButton />
-              <InfoButton />
-            </ConversationHeader.Actions>
           </ConversationHeader>
           <MessageList
-            typingIndicator={<TypingIndicator content='Zoe is typing' />}
+            typingIndicator={
+              <TypingIndicator content='Captain Scope is typing' />
+            }
           >
-            <MessageSeparator content='Saturday, 30 November 2019' />
-
             <Message
               model={{
-                message: 'Hello my friend',
+                message: 'Hello my name is Captain Scope',
                 sentTime: '15 mins ago',
-                sender: 'Zoe',
+                sender: 'Captain Scope',
                 direction: 'incoming',
                 position: 'single',
               }}
             >
-              <Avatar name='Zoe' />
+              <Avatar src="/captain-scope.jpg" name="Captain Scope" />
             </Message>
-
             <Message
               model={{
-                message: 'Hello my friend',
+                message: 'Hello Captain Scope',
                 sentTime: '15 mins ago',
-                sender: 'Patrik',
+                sender: 'User',
                 direction: 'outgoing',
                 position: 'single',
               }}
-              avatarSpacer
             />
             <Message
               model={{
-                message: 'Hello my friend',
+                message: 'I neeed help with my vacation days',
                 sentTime: '15 mins ago',
                 sender: 'Zoe',
-                direction: 'incoming',
-                position: 'first',
+                direction: 'outgoing',
+                position: 'single',
               }}
-              avatarSpacer
             />
             <Message
               model={{
-                message: 'Hello my friend',
+                message:
+                  'To take vacation go to Unplugged and click on the vacation tab',
                 sentTime: '15 mins ago',
-                sender: 'Zoe',
+                sender: 'Captain Scope',
                 direction: 'incoming',
-                position: 'normal',
-              }}
-              avatarSpacer
-            />
-            <Message
-              model={{
-                message: 'Hello my friend',
-                sentTime: '15 mins ago',
-                sender: 'Zoe',
-                direction: 'incoming',
-                position: 'normal',
-              }}
-              avatarSpacer
-            />
-            <Message
-              model={{
-                message: 'Hello my friend',
-                sentTime: '15 mins ago',
-                sender: 'Zoe',
-                direction: 'incoming',
-                position: 'last',
+                position: 'single',
               }}
             >
-              <Avatar name='Zoe' />
+              <Avatar src="/captain-scope.jpg" name="Captain Scope" />
             </Message>
-
             <Message
               model={{
-                message: 'Hello my friend',
+                message: 'And what about sick days?',
                 sentTime: '15 mins ago',
-                sender: 'Patrik',
+                sender: 'User',
                 direction: 'outgoing',
                 position: 'first',
               }}
             />
             <Message
               model={{
-                message: 'Hello my friend',
+                message:
+                  'You can find the sick days tab in the same place as the vacation tab',
                 sentTime: '15 mins ago',
-                sender: 'Patrik',
-                direction: 'outgoing',
-                position: 'normal',
-              }}
-            />
-            <Message
-              model={{
-                message: 'Hello my friend',
-                sentTime: '15 mins ago',
-                sender: 'Patrik',
-                direction: 'outgoing',
-                position: 'normal',
-              }}
-            />
-            <Message
-              model={{
-                message: 'Hello my friend',
-                sentTime: '15 mins ago',
-                sender: 'Patrik',
-                direction: 'outgoing',
-                position: 'last',
-              }}
-            />
-
-            <Message
-              model={{
-                message: 'Hello my friend',
-                sentTime: '15 mins ago',
-                sender: 'Zoe',
+                sender: 'Captain Scope',
                 direction: 'incoming',
                 position: 'first',
-              }}
-              avatarSpacer
-            />
-            <Message
-              model={{
-                message: 'Hello my friend',
-                sentTime: '15 mins ago',
-                sender: 'Zoe',
-                direction: 'incoming',
-                position: 'last',
               }}
             >
-              <Avatar name='Zoe' />
+              <Avatar src='/captain-scope.jpg' name='Captain Scope' />
+            </Message>
+            <Message
+              model={{
+                message: 'And what about extraordinary days?',
+                sentTime: '15 mins ago',
+                sender: 'User',
+                direction: 'outgoing',
+                position: 'first',
+              }}
+            />
+            <Message
+              model={{
+                message:
+                  'You can find the extraordinary days tab in the same place as the vacation tab',
+                sentTime: '15 mins ago',
+                sender: 'Captain Scope',
+                direction: 'incoming',
+                position: 'first',
+              }}
+            >
+              <Avatar src="/captain-scope.jpg" name="Captain Scope" />
             </Message>
           </MessageList>
           <MessageInput
-            placeholder='Type message here'
+            placeholder="Type message here"
             value={messageInputValue}
             onChange={(val) => setMessageInputValue(val)}
-            onSend={() => setMessageInputValue('')}
-            sendButton={false}
+            onSend={() => setMessageInputValue("")}
+            sendButton={true}
             attachButton={false}
           />
-          <InputToolbox>
-            <AttachmentButton />
-            <SendButton />
-          </InputToolbox>
         </ChatContainer>
       </MainContainer>
     </div>
-  );
+  )
 }
