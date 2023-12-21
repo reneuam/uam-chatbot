@@ -15,6 +15,13 @@ import { useState } from 'react'
 
 export default function Chat() {
   const [messageInputValue, setMessageInputValue] = useState('')
+  const [typingIndicatorState, setTypingIndicatorState] = useState(false)
+
+  const onSend = async () => {
+    const message = messageInputValue;
+    setMessageInputValue('')
+    console.log('onSend wow!', message, messageInputValue)
+  }
 
   return (
     <div className='fixed w-[20rem] h-[35rem] right-0 bottom-0'>
@@ -30,7 +37,7 @@ export default function Chat() {
           </ConversationHeader>
           <MessageList
             typingIndicator={
-              <TypingIndicator content='Captain Scope is typing' />
+              typingIndicatorState && <TypingIndicator content='Captain Scope is typing' />
             }
           >
             <Message
@@ -121,7 +128,9 @@ export default function Chat() {
             placeholder='Type message here'
             value={messageInputValue}
             onChange={(val) => setMessageInputValue(val)}
-            onSend={() => setMessageInputValue('')}
+            onSend={() => onSend()}
+            onFocus={() => setTypingIndicatorState(true)}
+            onBlur={() => setTypingIndicatorState(false)}
             sendButton={true}
             attachButton={false}
           />
