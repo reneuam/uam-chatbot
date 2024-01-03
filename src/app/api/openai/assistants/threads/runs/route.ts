@@ -25,12 +25,7 @@ export async function POST(req: NextRequest) {
     const threadCreateAndRunParams = {
       assistant_id: assistantId,
       thread: {
-        messages: [
-          {
-            role: Roles.User,
-            content: body.message,
-          },
-        ],
+        messages: [body.message],
       },
     } as ThreadCreateAndRunParams
 
