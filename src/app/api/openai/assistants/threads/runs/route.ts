@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production' ? true : false,
       sameSite: 'strict',
-      path: process.env.OPENAI_API_PATH,
+      path: '/',
       expires: new Date(Date.now() + 30 * 60 * 1000),
     })
 
