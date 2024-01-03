@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
-import { MessageCreateParams, MessageListParams } from 'openai/resources/beta/threads/messages/messages.mjs'
+import {
+  MessageCreateParams,
+  MessageListParams,
+} from 'openai/resources/beta/threads/messages/messages.mjs'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -10,11 +13,22 @@ export async function GET(req: NextRequest) {
   try {
     const threadId = 'thread_jHsoinWLDrkIrOltbgGjMT07'
 
+    const limit = req.nextUrl.searchParams.get('limit')
+    const order = req.nextUrl.searchParams.get('order')
+
+    const messageListParams = {
+      limit: limit ? parseInt(limit) : undefined,
+      order: order ? order : undefined,
+    } as MessageListParams
+
     if (!threadId) {
       return new NextResponse('Thread not found', { status: 404 })
     }
 
-    const data = await openai.beta.threads.messages.list(threadId)
+    const data = await openai.beta.threads.messages.list(
+      threadId,
+      messageListParams
+    )
 
     return NextResponse.json(data)
   } catch (error) {
