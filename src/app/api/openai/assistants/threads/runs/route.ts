@@ -1,4 +1,5 @@
 import { Cookie } from '@/app/interfaces/cookie'
+import { Roles } from '@/app/utils/enums/roles'
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
 import { ThreadCreateAndRunParams } from 'openai/resources/beta/threads/threads.mjs'
@@ -26,7 +27,7 @@ export async function POST(req: NextRequest) {
       thread: {
         messages: [
           {
-            role: 'user',
+            role: Roles.User,
             content: body.message,
           },
         ],
